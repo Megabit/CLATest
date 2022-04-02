@@ -1,0 +1,21 @@
+name: Check for Stale Expecting Answer
+
+on:
+  schedule:
+  - cron: "30 1 * * *"
+
+jobs:
+  stale:
+
+    runs-on: ubuntu-latest
+    permissions:
+      issues: write
+      pull-requests: write
+
+    steps:
+    - uses: actions/stale@v3
+      with:
+        repo-token: ${{ secrets.GITHUB_TOKEN }}
+        stale-issue-message: 'Hello @{issue-author}, this issue is expecting for your answer.'
+        days-before-stale: 1
+        only-labels: 'Status: Expecting Answer'
