@@ -18,4 +18,5 @@ jobs:
         repo-token: ${{ secrets.GITHUB_TOKEN }}
         stale-issue-message: 'Hello @{issue-author}, this issue is expecting for your answer.'
         days-before-stale: 1
+        days-before-close: -1
         only-labels: 'Status: Expecting Answer'
